@@ -2,7 +2,7 @@
 HW3 - Game Controller - Catfish vs. Piranha
 Jonathan Shum, Caroline Chen, Kingston Xu
 
-![alt tag](https://raw.githubusercontent.com/idd-fall16/Catfish-Swordfish/blob/master/Media/GameScreenShot.png)
+![alt tag](https://raw.githubusercontent.com/idd-fall16/Catfish-Swordfish/master/Media/GameScreenShot.png)
 
 ## Credits
 
