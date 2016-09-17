@@ -24,12 +24,12 @@ public class PlayerController : MonoBehaviour
 	
 	void Update ()
 	{
-		string value = "";
+		string value = "XXX";
 		if (serial) {
 			value = stream.ReadLine();
 		}
 
-		if (value == "Shoot") {
+		if (value[2] == '1') {
 			shot.Shoot();
 		} else if (Input.GetButtonDown ("Fire1")) {
 			shot.Shoot ();
@@ -40,11 +40,13 @@ public class PlayerController : MonoBehaviour
 			controller.LookUp ();
 		else if (Input.GetAxis ("Horizontal") != 0f)
 			controller.Move (Input.GetAxis ("Horizontal"));
-		else if ((value != "Shoot") && (value != "") && (value != null)) {
-			float rotation = (float)Double.Parse(value);
-			rotation = rotation/45.0f;
-			controller.Move(Clamp(rotation,-1,1));
-		} 
+		else if (value[0] == '0') {
+			// float rotation = (float)Double.Parse(value);
+			// rotation = rotation/45.0f;
+			controller.Move(1);
+		} else if (value[0] == '1') {
+			controller.Move(-1);
+		}
 
 
 		if (Input.GetKeyDown (KeyCode.LeftShift))
