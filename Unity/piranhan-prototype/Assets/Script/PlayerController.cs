@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 			value = stream.ReadLine();
 		}
 
-		if (value[2] == '1') {
+		if (value[2] == '0') {
 			shot.Shoot();
 		} else if (Input.GetButtonDown ("Fire1")) {
 			shot.Shoot ();
@@ -40,11 +40,11 @@ public class PlayerController : MonoBehaviour
 			controller.LookUp ();
 		else if (Input.GetAxis ("Horizontal") != 0f)
 			controller.Move (Input.GetAxis ("Horizontal"));
-		else if (value[0] == '0') {
+		else if (value[1] == '0') {
 			// float rotation = (float)Double.Parse(value);
 			// rotation = rotation/45.0f;
 			controller.Move(1);
-		} else if (value[0] == '1') {
+		} else if (value[1] == '1') {
 			controller.Move(-1);
 		}
 

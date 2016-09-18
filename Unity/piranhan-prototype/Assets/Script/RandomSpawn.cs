@@ -7,7 +7,7 @@ public class RandomSpawn : MonoBehaviour
 	GameManager manager;
 	[SerializeField]
 	GameObject fishPrefab;
-	private float spawnPercent = 3f;
+	private float spawnPercent = 2f;
 	public int spawnCount = 0;
 	[SerializeField]
 	Transform left = null, right = null;

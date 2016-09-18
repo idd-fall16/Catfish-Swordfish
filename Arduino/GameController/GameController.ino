@@ -24,10 +24,11 @@ double prevPitch = 0;
 double pi = 3.14159265;
 
 // Photoresistor
-int photoResistorPin = D10;
+int fsrPin = D11;
+int ledPin = D10;
 
 void setup() {
-  
+  pinMode(ledPin,OUTPUT);
   Serial.begin(9600);
   Serial.println("LIS3DH test!");
   
@@ -51,7 +52,7 @@ void loop() {
   pitch = ((atan2(lis.x, sqrt(lis.y*lis.y + lis.z*lis.z))*180.0)/pi + prevPitch) / 2;
   prevRoll = roll;
   prevPitch = pitch;
-  delay(100); 
+  delay(50); 
 
   String res = "";
   if (roll > 0) {
@@ -65,11 +66,14 @@ void loop() {
     res = res + "0";
   }
 
-  if (analogRead(photoResistorPin) > 9) {
+  if (analogRead(fsrPin) > 100) {
     res = res + "1";
+    digitalWrite(ledPin,LOW);
   } else {
     res = res + "0";
+    digitalWrite(ledPin,HIGH);
   }
+  
   
   Serial.println(res);
 }
